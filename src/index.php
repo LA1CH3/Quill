@@ -4,16 +4,29 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
+			<div id="slider" class="flexslider frontslider">
+			  <ul class="slides">
+			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
+			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
+			    </li>
+			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
+			      
+			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
+			    </li>
+			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
+			      
+			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
+			    </li>
+			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
+			      
+			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
+			    </li>
+			    <!-- items mirrored twice, total of 12 -->
+			  </ul>
+			</div>
 
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

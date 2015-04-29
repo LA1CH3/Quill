@@ -13,18 +13,24 @@ var gulp = require( "gulp" ),
 		"src/js/lib/conditionizr-4.3.0.min.js",
 		/** jQuery */
 		"src/bower_components/jquery/dist/jquery.js",
+		/** FlexSlider */
+		"src/bower_components/flexslider/jquery.flexslider-min.js",
 		/** Page scripts */
 		"src/js/scripts.js"
 	],
 	/** @type {Object of Array} CSS source files to concatenate and minify */
 	cssminSrc = {
 		development: [
+			/** Flexslider */
+			"src/bower_components/flexslider/flexslider.css",
 			/** The banner of `style.css` */
 			"src/css/banner.css",
 			/** Theme style */
 			"src/css/style.css"
 		],
 		production: [
+			/** Flexslider */
+			"src/bower_components/flexslider/flexslider.css",
 			/** The banner of `style.css` */
 			"src/css/banner.css",
 			/** Normalize */

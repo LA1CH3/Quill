@@ -2,14 +2,27 @@
 			<footer class="footer" role="contentinfo">
 
 				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
+				<div id="box1" class="box">
+					<a class="btn" id="btn-donate" href="#">Donate</a>
+					<a class="btn" id="btn-news" href="#">Get News</a>
+				</div>
+				<div id="box2" class="box">
+					<h2>Quill Theatre</h2>
+					<p>P.O. Box 7265<br>
+					Richmond, VA 23221</p>
+					<p>Info@QuillTheatre.org<br>
+					804.340.0115</p>
+					<span>Social goes here</span>
+
+				</div>
+				<div id="box3" class="box">
+					<img src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">
+				</div>
 				<!-- /copyright -->
 
 			</footer>
 			<!-- /footer -->
+			<p class="copyright">Copyright 2015 Quill Theatre</p>
 
 		</div>
 		<!-- /wrapper -->
@@ -25,6 +38,10 @@
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
+
+		<!-- typekit -->
+		<script src="//use.typekit.net/teh4omq.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 	</body>
 </html>

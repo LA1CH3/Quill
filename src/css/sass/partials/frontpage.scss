@@ -1,0 +1,30 @@
+/**
+ * partials/frontpage
+ * ---
+ * Front page stuff
+ */
+
+.home {
+	main {
+		padding-top: 25px;
+	}
+}
+
+.frontslider {
+	margin-bottom: 10px !important;
+	border: 0 !important;
+}
+
+.flexslider {
+	background: none;
+}
+
+.flex-control-thumbs li {
+	width: 46%;
+	margin: 2%;
+}
+
+.flex-control-nav {
+	background: none;
+}
+

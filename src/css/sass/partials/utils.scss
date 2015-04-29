@@ -21,3 +21,28 @@
 .reset-box {
   @include reset-box;
 }
+
+// For learn more links showing
+.show {
+	margin-top: -50px;
+	height: 110px !important;
+}
+
+.split-left {
+	width: 100%;
+	display: inline-block;
+	padding: 15px;
+	@media screen and (min-width: 480px){
+		width: 50%;
+	}
+}
+
+.split-right {
+	width: 100%;
+	display: inline-block;
+	padding: 15px;
+	@media screen and (min-width: 480px){
+		width: 50%;
+		float: right;
+	}
+}

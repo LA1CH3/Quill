@@ -4,4 +4,59 @@
  */
 
 
-.footer {}
+.footer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+   	flex-direction: row;
+   	-webkit-flex-wrap: wrap;
+   	flex-wrap: wrap;
+   	-webkit-flex-flow: row wrap;
+   	flex-flow: row wrap;
+   	width: 100%;
+   	border-bottom: 3px solid black;
+   	.box {
+   		order: 1;
+   		-webkit-flex: 1 1 auto;
+   		flex: 1 1 auto;
+   		min-width: 50%;
+   	}
+   	#box2 {
+   		order: 0;
+   		-webkit-flex: 2 2 auto;
+   		-ms-flex: 2 2 auto;
+   		flex: 2 2 auto;
+   		min-width: 100%;
+   		text-align: center;
+   		border-top: 3px solid black;
+   		border-bottom: 3px solid black;
+   		padding-bottom: 2em;
+   		h2 {
+   			text-transform: uppercase;
+   		}
+   	}
+   	#box3 {
+   		img {
+   			max-width: 140px;
+   			padding-top: 10px;
+   			display: block;
+   			margin: 0 auto;
+   		}
+   	}
+}
+
+.copyright {
+	text-align: center;
+}
+
+
+#box1 {
+	#btn-donate {
+		background-color: $purplered;
+	}
+	#btn-news {
+		background-color: $darkpurple;
+	}
+}
+
+

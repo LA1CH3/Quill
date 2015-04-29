@@ -5,9 +5,28 @@
 
 
 // Header container
-.header {}
+.header {
+	padding: 0 $padding-horizontal-base;
+	position: relative;
+	max-height: 200px;
+}
 
 // Logo
-.logo {}
+.logo {
+	width: 33%;
+	float: left;
+	img {
+		max-height: 200px;
+	}
+}
 
-.logo-img {}
+.tagline {
+	width: 60%;
+	float: right;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	max-width: 500px;
+}
+
+
