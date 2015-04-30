@@ -492,13 +492,35 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
-///////////////////// RANDOM STUFF
+///////////////////// Single Shows AJAX
 
 add_action('wp_ajax_shows', 'shows_callback');
 add_action('wp_ajax_nopriv_shows', 'shows_callback');
 
 function shows_callback() {
-    echo "Hello";
-    die();
+    global $wpdb;
+
+    $field = $_REQUEST['field'];
+    $id = $_REQUEST['id'];
+
+    $args = array(
+
+        'post_type' => 'shows',
+        'post__in' => array($id)
+
+        );
+
+    $showquery = new WP_Query($args);
+
+    if( $showquery->have_posts() ) : while( $showquery->have_posts() ) : $showquery->the_post();
+
+        $value = get_field($field, false, true);
+        echo $value;
+        
+
+    endwhile; endif; wp_reset_postdata();
+
+
+    die(1);
 }
 

@@ -525,42 +525,26 @@ article.about p {
 .footer {
   width: 100%;
   border-bottom: 3px solid black;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  display: -webkit-flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
+  display: block;
 }
 .footer .box {
-  order: 1;
-  -webkit-flex: 1 1 auto;
-  -moz-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
   min-width: 50%;
-  clear: both;
+  display: inline-block;
+}
+.footer #box1 {
+  float: left;
 }
 .footer #box2 {
-  order: 0;
-  flex: 2 2 auto;
   min-width: 100%;
   text-align: center;
   border-top: 3px solid black;
-  border-bottom: 3px solid black;
   padding-bottom: 2em;
-  -webkit-flex: 2 2 auto;
-  -ms-flex: 2 2 auto;
 }
 .footer #box2 h2 {
   text-transform: uppercase;
+}
+.footer #box3 {
+  float: right;
 }
 .footer #box3 img {
   max-width: 140px;
@@ -570,7 +554,10 @@ article.about p {
 }
 
 .copyright {
+  clear: both;
   text-align: center;
+  border-top: 3px solid black;
+  padding: 10px;
 }
 
 #box1 #btn-donate {

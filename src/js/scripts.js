@@ -50,15 +50,18 @@
 		$(".tabs .btn").click(function(e) {
 			e.preventDefault();
 		    $.ajax({
-		        url:"/wp-admin/admin-ajax.php",
+		        url:"../../../quill/wp-admin/admin-ajax.php",
 		        type: "GET",
 		        cache: false,
+		        dataType: "html",
 		        data: {
-		        	//field: $(this).attr("data-content"),
+		        	field: $(this).attr("data-content"),
+		        	id: $(".tabs").attr("data-content"),
 		        	action: "shows"
 		    },
 		        success: function(resp) {
-		            $(".ajax-show").append(resp);
+		        	console.log(resp);
+		            $(".ajax-show").hide().html(resp).fadeIn();
 
 		        },
 		        error: function(xhr, status, error){

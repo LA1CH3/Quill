@@ -1,22 +1,12 @@
-<?php 
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
+    $post_ID = $_GET['id'];
 
-function shows_callback() {
-  global $wpdb;
+    $custom = get_post_custom($post_ID);
 
-  $field = $_POST["field"];
- 
-  while ( have_posts() ) : the_post();
-
-  $thefield = get_field($field, false, true);
-
-  echo $thefield;
-
-  endwhile;
-  wp_rest_query();
-
-  die(1);
-  wp_reset_postdata();
-}
-    
-
+    foreach ($custom as $key => $value) {
+        if (($key != '_edit_lock' && $key != '_edit_last'))
+            echo '<tr><td>' . $key . '</td><td>' . $value[0] . '</td></tr>';
+    }
+    die();
 ?>

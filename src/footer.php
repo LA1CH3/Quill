@@ -2,10 +2,6 @@
 			<footer class="footer" role="contentinfo">
 
 				<!-- copyright -->
-				<div id="box1" class="box">
-					<a class="btn" id="btn-donate" href="#">Donate</a>
-					<a class="btn" id="btn-news" href="#">Get News</a>
-				</div>
 				<div id="box2" class="box">
 					<h2>Quill Theatre</h2>
 					<p>P.O. Box 7265<br>
@@ -14,6 +10,10 @@
 					804.340.0115</p>
 					<span>Social goes here</span>
 
+				</div>
+				<div id="box1" class="box">
+					<a class="btn" id="btn-donate" href="#">Donate</a>
+					<a class="btn" id="btn-news" href="#">Get News</a>
 				</div>
 				<div id="box3" class="box">
 					<img src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">

@@ -18,9 +18,9 @@
 
 				<?php endwhile; endif; ?>
 
-				<ul class="tabs">
+				<ul class="tabs" data-content="<?php echo $post->ID; ?>">
 					<li data-content="photos" class="btn">
-						<a href="#">Photos</a>
+						<a href="<?php echo bloginfo('template_directory'); ?>/inc/showajax.php?id=<?php echo $post->ID; ?>">Photos</a>
 					</li>
 					<li data-content="talk-backs" class="btn">
 						<a href="#">Talkbacks</a>
