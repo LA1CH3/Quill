@@ -9,74 +9,44 @@
 				
 			</div>
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<ul class="listing">
+
+				<?php
+
+					if( have_posts() ) : while( have_posts() ) : the_post();
+
+				 ?>
+
 					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
+						<!-- <img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice"> -->
+
+						<a href="<?php the_permalink(); ?>">
+
+						<?php 
+
+						the_post_thumbnail();
+
+						?>
+
+						</a>
+
 						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
+							<h3><?php the_title(); ?></h3>
+							<a class="learn-more" href="<?php the_permalink(); ?>">Learn More ></a>
 						</div>
 					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Merchant of Venice</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
+					
+					<?php endwhile; endif; wp_reset_postdata(); ?>
+
 				</ul>
 
 				<br class="clear">
 
 			</article>
 			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
 
 		</section>
 		<!-- /section -->

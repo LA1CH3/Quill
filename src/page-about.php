@@ -37,27 +37,32 @@
 		<article>
 			<h2>Our Staff</h2>
 			<ul class="listing">
+
+
+			<?php
+
+				$args = array(
+
+					'post_type' => 'staff'
+
+					);
+
+				$staffquery = new WP_Query($args);
+
+				if( $staffquery->have_posts() ) : while( $staffquery->have_posts() ) : $staffquery->the_post();
+
+			 ?>
+
 				<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
+					<a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail(); ?>
+					</a>
 						<div class="list-hover">
-							<h3>Jacquie O'Connor</h3>
-							<a class="learn-more" href="#">Learn More ></a>
+							<h3><?php the_title(); ?></h3>
+							<a class="learn-more" href="<?php the_permalink(); ?>">Learn More ></a>
 						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Jan Powell</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
-					<li>
-						<img src="<?php echo get_template_directory_uri() . '/img/thumb.jpg'; ?>" alt="The Merchant of Venice">
-						<div class="list-hover">
-							<h3>Brittany Keegan</h3>
-							<a class="learn-more" href="#">Learn More ></a>
-						</div>
-					</li>
+				</li>
+					<?php endwhile; endif; wp_reset_postdata(); ?>
 			</ul>
 		</article>
 		<!-- /our staff -->

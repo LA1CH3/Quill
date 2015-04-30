@@ -120,10 +120,6 @@ a {
   font-size: 1em;
 }
 
-img {
-  display: block;
-}
-
 article {
   padding: 0px 15px;
   border-bottom: 3px solid black;
@@ -405,6 +401,7 @@ article.about p {
 .split-right img {
   width: 70%;
   margin: 0 auto;
+  max-width: 200px;
 }
 @media screen and (min-width: 480px) {
   .split-right {

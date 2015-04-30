@@ -14,7 +14,10 @@
 				<a class="btn tix" href="#">Buy Tickets</a>
 				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-					<?php the_content(); ?>
+					<?php the_content();
+
+
+					$address = get_field("google_map_address", false, true); ?>
 
 				<?php endwhile; endif; ?>
 
@@ -58,7 +61,7 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta nisi metus, vel faucibus libero bibendum egestas. In commodo tristique elementum. Vivamus turpis libero, aliquam pellentesque fringilla nec, finibus id urna. Phasellus nisl lorem, sagittis quis arcu quis, venenatis lacinia tellus. Nam consequat eleifend eros et viverra. Duis nec maximus erat, ut hendrerit ex. Nunc tempus malesuada lorem, eget porttitor ex suscipit commodo. Duis ut scelerisque augue. Ut ac velit velit. Aenean sapien ligula, iaculis vitae placerat ac, gravida et ex.</p>
 				</div>
 				<div class="split-right">
-					<img src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">
+					<img style="display: block;" src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">
 				</div>
 				
 
@@ -79,19 +82,40 @@
 
 		<?php endif; ?>
 
+		<?php $myVar = "new york"; ?>
+
 		<!-- school performances -->
 		<article class="location">
 			<script type="text/javascript"
 				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwKLaKFqCqNs61pylmB8Yqj6I0v1LhE-A">
 			</script>
 			<script type="text/javascript">
+
+			var latitude, longitude;
+
+			var geocoder = new google.maps.Geocoder();
+			var address = <?php echo json_encode($address); ?>;
+
+			geocoder.geocode({ "address": address}, function(results, status){
+
+					latitude = results[0].geometry.location.lat();
+					longitude = results[0].geometry.location.lng();
+				
+
+			});
+
 				function initialize() {
+					var myLatLng = new google.maps.LatLng(latitude, longitude);
 					var mapOptions = {
-						center: { lat: -34.397, lng: 150.644},
-						zoom: 8
+						center: myLatLng,
+						zoom: 13
 					};
 					var map = new google.maps.Map(document.getElementById('map-canvas'),
 						mapOptions);
+					var marker = new google.maps.Marker({
+						position: myLatLng,
+						map: map 
+					});
 				}
 				google.maps.event.addDomListener(window, 'load', initialize);
 			</script>
