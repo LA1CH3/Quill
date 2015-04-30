@@ -111,7 +111,7 @@ h1 {
   font-size: 2em;
 }
 
-h2, *::-webkit-input-placeholder {
+h2, h3 {
   font-size: 1.5 em;
   text-transform: uppercase;
 }
@@ -120,13 +120,21 @@ a {
   font-size: 1em;
 }
 
+img {
+  display: block;
+}
+
 article {
   padding: 0px 15px;
   border-bottom: 3px solid black;
   clear: both;
+  position: relative;
 }
 article:last-child {
   border-bottom: 0px;
+}
+article.about p {
+  padding-bottom: 20%;
 }
 
 .btn {
@@ -143,6 +151,10 @@ article:last-child {
 }
 .btn:hover {
   text-decoration: none;
+}
+.btn.tix {
+  background-color: #7c1416;
+  color: white;
 }
 
 .page-jumbo {
@@ -254,6 +266,48 @@ article:last-child {
   border: 0px;
 }
 
+.tabs {
+  list-style-type: none;
+  -webkit-padding-start: 0em;
+  text-align: right;
+  position: absolute;
+  bottom: -7px;
+  right: 0;
+}
+.tabs li {
+  display: inline;
+  width: 20%;
+  background-color: #e0c59c;
+  border-right: 0px;
+}
+.tabs li:last-child {
+  border-right: 2px solid black;
+}
+.tabs li a {
+  font-size: 0.7em;
+}
+@media screen and (min-width: 480px) {
+  .tabs li a {
+    font-size: 1em;
+  }
+}
+
+.location h2, .location h3 {
+  display: inline-block;
+}
+.location h2.top {
+  float: left;
+}
+.location h3 {
+  float: right;
+}
+.location #map-canvas {
+  clear: both;
+  width: calc(100% + 30px);
+  min-height: 300px;
+  margin: 0 -15px;
+}
+
 /**
  * partials/wordpress
  * ---
@@ -347,6 +401,10 @@ article:last-child {
   width: 100%;
   display: inline-block;
   padding: 15px;
+}
+.split-right img {
+  width: 70%;
+  margin: 0 auto;
 }
 @media screen and (min-width: 480px) {
   .split-right {
@@ -465,33 +523,41 @@ article:last-child {
  * ---
  */
 .footer {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
   width: 100%;
   border-bottom: 3px solid black;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 .footer .box {
   order: 1;
   -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-width: 50%;
+  clear: both;
 }
 .footer #box2 {
   order: 0;
-  -webkit-flex: 2 2 auto;
-  -ms-flex: 2 2 auto;
   flex: 2 2 auto;
   min-width: 100%;
   text-align: center;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   padding-bottom: 2em;
+  -webkit-flex: 2 2 auto;
+  -ms-flex: 2 2 auto;
 }
 .footer #box2 h2 {
   text-transform: uppercase;

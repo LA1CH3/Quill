@@ -46,6 +46,30 @@
 
 
 
+		// Show page ajax
+		$(".tabs .btn").click(function(e) {
+			e.preventDefault();
+		    $.ajax({
+		        url:"/wp-admin/admin-ajax.php",
+		        type: "GET",
+		        cache: false,
+		        data: {
+		        	//field: $(this).attr("data-content"),
+		        	action: "shows"
+		    },
+		        success: function(resp) {
+		            $(".ajax-show").append(resp);
+
+		        },
+		        error: function(xhr, status, error){
+		        	var err = JSON.parse(xhr.responseText);
+		        	console.log(err);
+		        }
+		    });
+		});
+
+
+
 
 
 		// Random things needed to be done

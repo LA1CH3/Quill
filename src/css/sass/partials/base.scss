@@ -22,7 +22,7 @@
  	 font-size: 2em;
  }
 
- h2, *::-webkit-input-placeholder {
+ h2, h3 {
  	font-size: 1.5 em;
  	text-transform: uppercase;
  }
@@ -31,12 +31,22 @@
  	font-size: 1em;
  }
 
+ img {
+ 	display: block;
+ }
+
  article {
  	padding: 0px 15px;
  	border-bottom: 3px solid black;
  	clear: both;
+ 	position: relative;
  	&:last-child {
  		border-bottom: 0px;
+ 	}
+ 	&.about {
+ 		p {
+ 			padding-bottom: 20%;
+ 		}
  	}
  }
 
@@ -54,6 +64,10 @@
 	text-transform: uppercase;
 	&:hover{
 		text-decoration: none;
+	}
+	&.tix {
+		background-color: $red;
+		color: white;
 	}
  }
 
@@ -162,6 +176,49 @@
 		color: $body-bg;
 		background-color: $red;
 		border: 0px;
+	}
+}
+
+.tabs {
+	list-style-type: none;
+	-webkit-padding-start: 0em;
+	text-align: right;
+	position: absolute;
+	bottom: -7px;
+	right: 0;
+	li {
+		display: inline;
+		width: 20%;
+		background-color: $darktan;
+		border-right: 0px;
+		&:last-child {
+			border-right: 2px solid black;
+		}
+		a {
+			font-size: 0.7em;
+			@media screen and (min-width: 480px){
+				font-size: 1em;
+			}
+		}
+	}
+}
+
+// Location articles
+.location {
+	h2,h3 {
+		display: inline-block;
+	}
+	h2.top {
+		float: left;
+	}
+	h3 {
+		float: right;
+	}
+	#map-canvas {
+		clear: both;
+		width: calc(100% + 30px);
+		min-height: 300px;
+		margin: 0 -15px;
 	}
 }
 
