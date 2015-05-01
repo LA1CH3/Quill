@@ -12,6 +12,7 @@
  h1, h2, h3, h4, h5, h6, a, p, span, input, textarea {
  	font-family: 'brandon-grotesque', sans-serif;
  	color: black;
+ 	border-radius: 0px !important;
  }
 
  h1, h2, h3, h4, h5, h6, a, input, textarea {
@@ -40,9 +41,7 @@
  		border-bottom: 0px;
  	}
  	&.about {
- 		p {
- 			padding-bottom: 20%;
- 		}
+ 		padding-bottom: 10%;
  	}
  }
 
@@ -74,6 +73,9 @@
  	background-position: center center;
  	background-size: cover;
  	position: relative;
+ 	@media screen and (min-width: 768px){
+ 		background-position: center top;
+ 	}
  	h2 {
 		position: absolute;
 		left: 0;
@@ -86,6 +88,7 @@
 		text-transform: uppercase;
 		border: 2px solid $body-bg;
 		color: $body-bg;
+		font-weight: 800;
  	}
  }
 
@@ -175,6 +178,7 @@
 	}
 }
 
+// show page tabs
 .tabs {
 	list-style-type: none;
 	-webkit-padding-start: 0em;
@@ -192,6 +196,7 @@
 		}
 		a {
 			font-size: 0.7em;
+			text-decoration: none;
 			@media screen and (min-width: 480px){
 				font-size: 1em;
 			}
@@ -215,6 +220,17 @@
 		width: calc(100% + 30px);
 		min-height: 300px;
 		margin: 0 -15px;
+	}
+}
+
+// staff single page styles
+.staff {
+	h3 {
+		text-align: center;
+	}
+	.btn {
+		background-color: $red;
+		color: $body-bg;
 	}
 }
 

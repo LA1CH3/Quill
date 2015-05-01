@@ -6,22 +6,31 @@
 
 			<div id="slider" class="flexslider frontslider">
 			  <ul class="slides">
-			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
-			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
+
+			  <?php
+
+			  $args = array(
+
+			  	'post_type' => 'shows'
+
+			  	);
+
+			  $showquery = new WP_Query($args);
+
+			  if( $showquery->have_posts() ) : while( $showquery->have_posts() ) : $showquery->the_post(); 
+
+			  $thumb_id = get_post_thumbnail_id();
+			  $thumb_url_array = wp_get_attachment_image_src($thumb_id);
+			  $thumb_url = $thumb_url_array[0];
+
+			   ?>
+			    <li data-thumb="<?php echo $thumb_url; ?>">
+			    	<a href="<?php the_permalink(); ?>">
+			      		<?php the_post_thumbnail(); ?>
+			      	</a>
 			    </li>
-			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
-			      
-			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
-			    </li>
-			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
-			      
-			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
-			    </li>
-			    <li data-thumb="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>">
-			      
-			      <img alt="Hi" src="<?php echo get_template_directory_uri() . '/img/AmericanBuffalo.png'; ?>" />
-			    </li>
-			    <!-- items mirrored twice, total of 12 -->
+
+			   <?php endwhile; endif; wp_reset_postdata(); ?>
 			  </ul>
 			</div>
 

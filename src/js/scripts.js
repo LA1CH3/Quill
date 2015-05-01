@@ -17,8 +17,8 @@
 		var $cache = {};
 
 		$cache.menuToggle = $(".nav-toggle");
-		$cache.mobileMenu = $(".nav");
-		$cache.menuExit = $(".nav span");
+		$cache.mobileMenu = $(".nav.mobile");
+		$cache.menuExit = $(".nav.mobile span");
 		$cache.listing = $(".listing li");
 		$cache.learnMore = $(".learn-more");
 
@@ -49,6 +49,8 @@
 		// Show page ajax
 		$(".tabs .btn").click(function(e) {
 			e.preventDefault();
+			$(".tabs .btn").removeClass("selected");
+			$(this).addClass("selected");
 		    $.ajax({
 		        url:"../../../quill/wp-admin/admin-ajax.php",
 		        type: "GET",
@@ -60,7 +62,6 @@
 		        	action: "shows"
 		    },
 		        success: function(resp) {
-		        	console.log(resp);
 		            $(".ajax-show").hide().html(resp).fadeIn();
 
 		        },

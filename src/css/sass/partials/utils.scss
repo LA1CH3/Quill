@@ -28,6 +28,7 @@
 	height: 110px !important;
 }
 
+// For split articles
 .split-left {
 	width: 100%;
 	display: inline-block;
@@ -49,5 +50,46 @@
 	@media screen and (min-width: 480px){
 		width: 50%;
 		float: right;
+	}
+}
+
+.split-onethird {
+	width: 100%;
+	display: inline-block;
+	padding: 15px;
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+	@media screen and (min-width: 480px){
+		width: calc(100%/3);
+	}
+}
+
+.split-twothirds {
+	width: 100%;
+	display: inline-block;
+	padding: 15px;
+	@media screen and (min-width: 480px){
+		width: 66.666666%;
+		float: right;
+	}
+}
+
+// AJAX container
+.ajax-show {
+	iframe {
+		width: 100%;
+		display: block;
+		padding: 15px;
+		margin: 0 auto;
+	}
+}
+
+// AJAX tabs
+.selected {
+	background-color: $red !important;
+	a {
+		color: white;
 	}
 }

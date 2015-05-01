@@ -43,16 +43,24 @@
 					</div>
 					<!-- /logo -->
 
-					<!-- nav -->
-					<div class="nav-toggle">
+					<!-- mobile nav -->
+					<div class="mobile nav-toggle">
 						<span>=</span><span>menu</span>
 					</div>
 
-					<nav class="nav" role="navigation">
+					<nav class="nav mobile" role="navigation">
 						<?php html5blank_nav(); ?>
 						<span>X</span>
 					</nav>
-					<!-- /nav -->
+					<!-- /mobile nav -->
+
+					<!-- desktop nav -->
+					<nav class="nav desktop"
+					>
+						<?php html5blank_nav(); ?>
+
+					</nav>
+					<!-- /desktop nav -->
 
 			</header>
 			<!-- /header -->

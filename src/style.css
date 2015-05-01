@@ -365,6 +365,11 @@ input[type="search"] {
   text-shadow: none;
 }
 
+.flex-direction-nav a {
+  top: 25%;
+  height: 50px;
+}
+
 /**
  * base.scss
  * ---
@@ -378,6 +383,7 @@ body {
 h1, h2, h3, h4, h5, h6, a, p, span, input, textarea {
   font-family: 'brandon-grotesque', sans-serif;
   color: black;
+  border-radius: 0px !important;
 }
 
 h1, h2, h3, h4, h5, h6, a, input, textarea {
@@ -406,11 +412,11 @@ article {
 article:last-child {
   border-bottom: 0px;
 }
-article.about p {
-  padding-bottom: 20%;
+article.about {
+  padding-bottom: 10%;
 }
 
-.btn {
+.btn, .desktop ul li a {
   display: block;
   text-align: center;
   border: 2px solid black;
@@ -422,10 +428,10 @@ article.about p {
   font-weight: 700;
   text-transform: uppercase;
 }
-.btn:hover {
+.btn:hover, .desktop ul li a:hover {
   text-decoration: none;
 }
-.btn.tix {
+.btn.tix, .desktop ul li a.tix {
   background-color: #7c1416;
   color: white;
 }
@@ -436,6 +442,11 @@ article.about p {
   background-position: center center;
   background-size: cover;
   position: relative;
+}
+@media screen and (min-width: 768px) {
+  .page-jumbo {
+    background-position: center top;
+  }
 }
 .page-jumbo h2 {
   position: absolute;
@@ -449,6 +460,7 @@ article.about p {
   text-transform: uppercase;
   border: 2px solid #efddc2;
   color: #efddc2;
+  font-weight: 800;
 }
 
 .listing {
@@ -561,6 +573,7 @@ article.about p {
 }
 .tabs li a {
   font-size: 0.7em;
+  text-decoration: none;
 }
 @media screen and (min-width: 480px) {
   .tabs li a {
@@ -583,6 +596,14 @@ article.about p {
   width: calc(100% + 30px);
   min-height: 300px;
   margin: 0 -15px;
+}
+
+.staff h3 {
+  text-align: center;
+}
+.staff .btn, .staff .desktop ul li a, .desktop ul li .staff a {
+  background-color: #7c1416;
+  color: #efddc2;
 }
 
 /**
@@ -691,6 +712,48 @@ article.about p {
   }
 }
 
+.split-onethird {
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+}
+.split-onethird img {
+  display: block;
+  margin: 0 auto;
+}
+@media screen and (min-width: 480px) {
+  .split-onethird {
+    width: -webkit-calc(100%/3);
+    width: calc(100%/3);
+  }
+}
+
+.split-twothirds {
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+}
+@media screen and (min-width: 480px) {
+  .split-twothirds {
+    width: 66.666666%;
+    float: right;
+  }
+}
+
+.ajax-show iframe {
+  width: 100%;
+  display: block;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.selected {
+  background-color: #7c1416 !important;
+}
+.selected a {
+  color: white;
+}
+
 /**
  * partials/wrapper
  * ---
@@ -753,7 +816,54 @@ article.about p {
   font-weight: 700;
 }
 
-.nav {
+.desktop {
+  text-align: center;
+}
+.desktop ul {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+}
+.desktop ul li {
+  display: inline-block;
+  margin: 0 -2px;
+}
+.desktop ul li.menu-item-14 {
+  background-color: #b3deae;
+}
+.desktop ul li.menu-item-15 {
+  background-color: #fedf60;
+}
+.desktop ul li.menu-item-16 {
+  background-color: #cab4da;
+}
+.desktop ul li.menu-item-17 {
+  background-color: #ee8463;
+}
+.desktop ul li.menu-item-18 {
+  background-color: #1f6dbf;
+}
+.desktop ul li a {
+  width: 100%;
+  border: 0px;
+  padding: 15px 15px;
+  max-width: auto !important;
+  margin: 0 !important;
+  text-decoration: none;
+  min-width: 85px;
+}
+@media screen and (min-width: 768px) {
+  .desktop ul li a {
+    padding: 15px 30px;
+    min-width: 150px;
+  }
+}
+
+.nav.mobile {
   position: fixed;
   left: 0;
   width: 100%;
@@ -762,7 +872,7 @@ article.about p {
   z-index: 11;
   display: none;
 }
-.nav span {
+.nav.mobile span {
   position: absolute;
   top: 30px;
   left: 0;
@@ -772,7 +882,7 @@ article.about p {
   font-size: 3em;
 }
 
-.nav ul {
+.nav.mobile ul {
   list-style-type: none;
   -webkit-padding-start: 0px;
   position: absolute;
@@ -782,14 +892,29 @@ article.about p {
   margin: 0 auto;
 }
 
-.nav ul li {
+.nav.mobile ul li {
   text-align: center;
   text-transform: uppercase;
   padding: 5px 0;
 }
-.nav ul li a {
+.nav.mobile ul li a {
   color: white;
   font-size: 2em;
+}
+
+@media screen and (min-width: 480px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+}
+@media screen and (min-width: 480px) {
+  .desktop {
+    display: block;
+  }
 }
 
 /**

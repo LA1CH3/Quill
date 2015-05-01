@@ -59,3 +59,9 @@ input[type="search"] {
   color: $body-bg;
   text-shadow: none;
 }
+
+// Flexslider resets/overrides
+.flex-direction-nav a {
+  top: 25%;
+  height: 50px;
+}
