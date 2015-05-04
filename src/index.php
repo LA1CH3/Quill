@@ -11,7 +11,8 @@
 
 			  $args = array(
 
-			  	'post_type' => 'shows'
+			  	'post_type' => 'shows',
+			  	'posts_per_page' => 5
 
 			  	);
 

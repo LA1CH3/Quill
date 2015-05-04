@@ -92,6 +92,35 @@ input[type="search"] {
   top: 25%;
   height: 50px;
 }
+@media screen and (min-width: 768px) {
+  .flex-direction-nav a {
+    top: 35%;
+  }
+}
+
+.flex-viewport {
+  max-height: 900px;
+  border: 3px solid #231f20;
+}
+.flex-viewport img {
+  max-height: auto;
+}
+@media screen and (min-width: 768px) {
+  .flex-viewport img {
+    position: relative;
+    top: -120px;
+  }
+}
+
+.volunteer {
+  border: 0px;
+}
+.volunteer .flex-viewport {
+  max-height: 600px;
+}
+.volunteer .flex-viewport img {
+  top: 0;
+}
 
 /**
  * base.scss
@@ -119,11 +148,24 @@ h1 {
 
 h2, h3 {
   font-size: 1.5 em;
+}
+@media screen and (min-width: 768px) {
+  h2, h3 {
+    font-size: 1.75em;
+  }
+}
+
+h2 {
   text-transform: uppercase;
 }
 
-a {
+a, p {
   font-size: 1em;
+}
+@media screen and (min-width: 768px) {
+  a, p {
+    font-size: 1.25em;
+  }
 }
 
 article {
@@ -134,9 +176,15 @@ article {
 }
 article:last-child {
   border-bottom: 0px;
+  margin-bottom: 5%;
 }
 article.about {
   padding-bottom: 10%;
+}
+@media screen and (min-width: 768px) {
+  article {
+    padding: 0px 30px;
+  }
 }
 
 .btn, .desktop ul li a {
@@ -158,6 +206,11 @@ article.about {
   background-color: #7c1416;
   color: white;
 }
+@media screen and (min-width: 768px) {
+  .btn.tix, .desktop ul li a.tix {
+    margin: 0 0 0 auto;
+  }
+}
 
 .page-jumbo {
   margin-top: 20px;
@@ -169,6 +222,7 @@ article.about {
 @media screen and (min-width: 768px) {
   .page-jumbo {
     background-position: center top;
+    height: 600px;
   }
 }
 .page-jumbo h2 {
@@ -177,7 +231,7 @@ article.about {
   right: 0;
   margin: 0 auto;
   text-align: center;
-  max-width: 50%;
+  max-width: 45%;
   top: 40%;
   padding: 10px;
   text-transform: uppercase;
@@ -190,15 +244,26 @@ article.about {
   list-style-type: none;
   -webkit-padding-start: 0;
 }
+@media screen and (min-width: 768px) {
+  .listing {
+    margin-bottom: 100px;
+  }
+}
 .listing li {
   display: inline-block;
   width: 45%;
-  margin: 6% 2%;
+  margin: 7% 2%;
   height: auto;
   min-height: 200px;
-  background-color: #7c1416;
+  background-color: #a12c2e;
   transition: 0.5s;
   position: relative;
+}
+@media screen and (min-width: 768px) {
+  .listing li {
+    width: 31%;
+    margin: 5% 1%;
+  }
 }
 .listing li img {
   width: 98%;
@@ -209,18 +274,20 @@ article.about {
 .listing li .list-hover {
   transition: 0.5s;
   text-align: center;
-  background-color: #7c1416;
+  background-color: #a12c2e;
   display: block;
   position: absolute;
   width: 100%;
   overflow: hidden;
-  height: 60px;
+  height: 110px;
+  padding: 0 10px;
 }
 .listing li .list-hover h3 {
   text-align: center;
   color: #efddc2;
   text-transform: uppercase;
-  padding: 6px;
+  padding: 5px;
+  min-height: 100px;
 }
 .listing li .list-hover a {
   border: 2px solid #efddc2;
@@ -249,29 +316,43 @@ article.about {
   outline: 0;
   border: 0;
   margin: 5px 0;
-  background-color: #7c1416;
+  background-color: #a12c2e;
   padding: 5px;
   color: #efddc2;
+  min-height: 50px;
 }
 .gform_wrapper ul li input::-webkit-input-placeholder, .gform_wrapper ul li textarea::-webkit-input-placeholder {
   color: #efddc2;
+  text-transform: uppercase;
+  font-size: 1.25em;
 }
 .gform_wrapper ul li input:-moz-placeholder, .gform_wrapper ul li textarea:-moz-placeholder {
   color: #efddc2;
+  text-transform: uppercase;
+  font-size: 1.25em;
 }
 .gform_wrapper ul li input::-moz-placeholder, .gform_wrapper ul li textarea::-moz-placeholder {
   color: #efddc2;
+  text-transform: uppercase;
+  font-size: 1.25em;
 }
 .gform_wrapper ul li input:-ms-input-placeholder, .gform_wrapper ul li textarea:-ms-input-placeholder {
   color: #efddc2;
+  text-transform: uppercase;
+  font-size: 1.25em;
 }
 .gform_wrapper ul .gform_validation_container {
   display: none;
 }
 .gform_wrapper .gform_button {
   color: #efddc2;
-  background-color: #7c1416;
+  background-color: #a12c2e;
   border: 0px;
+}
+@media screen and (min-width: 768px) {
+  .gform_wrapper .gform_button {
+    height: 50px;
+  }
 }
 
 .tabs {
@@ -315,6 +396,12 @@ article.about {
   width: calc(100% + 30px);
   min-height: 300px;
   margin: 0 -15px;
+}
+@media screen and (min-width: 768px) {
+  .location #map-canvas {
+    width: calc(100% + 60px);
+    margin: 0 -30px;
+  }
 }
 
 .staff h3 {
@@ -399,8 +486,8 @@ article.about {
 }
 
 .show {
-  margin-top: -50px;
-  height: 110px !important;
+  margin-top: -90px;
+  height: 200px !important;
 }
 
 .split-left {
@@ -412,6 +499,10 @@ article.about {
   .split-left {
     width: 50%;
   }
+}
+.split-left img {
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .split-right {
@@ -458,6 +549,21 @@ article.about {
   }
 }
 
+@media screen and (min-width: 480px) {
+  .single-workshops .split-twothirds {
+    float: left;
+    border-right: 5px solid black;
+    margin: 2.5% 0;
+  }
+}
+.single-workshops .split-onethird {
+  text-align: right;
+}
+.single-workshops .split-onethird p {
+  color: #7c1416;
+  font-weight: 800;
+}
+
 .ajax-show iframe {
   width: 100%;
   display: block;
@@ -491,6 +597,12 @@ article.about {
   position: relative;
   max-height: 200px;
 }
+@media screen and (min-width: 768px) {
+  .header {
+    padding-bottom: 20px;
+    padding: 0 30px;
+  }
+}
 
 .logo {
   width: 33%;
@@ -504,9 +616,15 @@ article.about {
   width: 60%;
   float: right;
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   right: 10px;
   max-width: 500px;
+}
+@media screen and (min-width: 768px) {
+  .tagline {
+    right: 30px;
+    bottom: 30px;
+  }
 }
 
 /**
@@ -527,11 +645,18 @@ article.about {
   text-align: center;
   padding: 10px 0;
 }
+.nav-toggle:hover {
+  cursor: pointer;
+}
 .nav-toggle span {
   color: black;
   display: inline;
   text-transform: uppercase;
   font-weight: 700;
+}
+.nav-toggle span img {
+  width: 20%;
+  padding-bottom: 5px;
 }
 
 .desktop {
@@ -647,13 +772,35 @@ article.about {
   width: 100%;
   border-bottom: 3px solid black;
   display: block;
+  max-width: 1300px;
+  margin: 0 auto;
+  clear: both;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+  }
 }
 .footer .box {
   min-width: 50%;
   display: inline-block;
 }
+@media screen and (min-width: 768px) {
+  .footer .box {
+    min-width: 33% !important;
+    height: 200px;
+    margin: 3% 0;
+  }
+}
 .footer #box1 {
   float: left;
+}
+@media screen and (min-width: 768px) {
+  .footer #box1 {
+    border-right: 5px solid black;
+    padding-top: 25px;
+  }
 }
 .footer #box2 {
   min-width: 100%;
@@ -663,9 +810,49 @@ article.about {
 }
 .footer #box2 h2 {
   text-transform: uppercase;
+  -webkit-margin-before: 0;
+}
+.footer #box2 .social {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+}
+.footer #box2 .social li {
+  display: inline-block;
+}
+.footer #box2 .social li a {
+  display: inline-block;
+  background-image: url(../src/img/sprite.png);
+  background-position: 0px 0px;
+  width: 43px;
+  height: 70px;
+}
+.footer #box2 .social li a.icon-fb {
+  background-position: -20px 0;
+}
+.footer #box2 .social li a.icon-twitter {
+  background-position: -70px 0;
+}
+.footer #box2 .social li a.icon-ig {
+  background-position: -120px 0;
+}
+.footer #box2 .social li a.icon-flickr {
+  background-position: -170px 0;
+}
+.footer #box2 .social li a.icon-yt {
+  background-position: -220px 0;
+}
+@media screen and (min-width: 768px) {
+  .footer #box2 {
+    border-top: 0px;
+  }
 }
 .footer #box3 {
   float: right;
+}
+@media screen and (min-width: 768px) {
+  .footer #box3 {
+    border-left: 5px solid black;
+  }
 }
 .footer #box3 img {
   max-width: 140px;
@@ -673,12 +860,22 @@ article.about {
   display: block;
   margin: 0 auto;
 }
+@media screen and (min-width: 768px) {
+  .footer #box3 img {
+    max-width: 220px;
+  }
+}
 
 .copyright {
   clear: both;
   text-align: center;
   border-top: 3px solid black;
   padding: 10px;
+}
+@media screen and (min-width: 768px) {
+  .copyright {
+    border-top: 0px !important;
+  }
 }
 
 #box1 #btn-donate {
@@ -780,6 +977,12 @@ article.about {
 .flex-control-thumbs li {
   width: 46%;
   margin: 2%;
+  border: 3px solid #231f20;
+}
+@media screen and (min-width: 768px) {
+  .flex-control-thumbs li {
+    width: calc(80%/5);
+  }
 }
 
 .flex-control-nav {

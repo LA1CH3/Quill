@@ -45,7 +45,9 @@
 
 					<!-- mobile nav -->
 					<div class="mobile nav-toggle">
-						<span>=</span><span>menu</span>
+						<span>
+							<img src="<?php echo get_template_directory_uri() . '/img/hamburger.svg'; ?>" alt="hamburger" />
+						</span><span>menu</span>
 					</div>
 
 					<nav class="nav mobile" role="navigation">

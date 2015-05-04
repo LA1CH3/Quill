@@ -9,6 +9,10 @@
 	padding: 0 $padding-horizontal-base;
 	position: relative;
 	max-height: 200px;
+	@media screen and (min-width: 768px){
+		padding-bottom: 20px;
+		padding: 0 30px;
+	}
 }
 
 // Logo
@@ -24,9 +28,13 @@
 	width: 60%;
 	float: right;
 	position: absolute;
-	bottom: 10px;
+	bottom: 0px;
 	right: 10px;
 	max-width: 500px;
+	@media screen and (min-width: 768px){
+		right: 30px;
+		bottom: 30px;
+	}
 }
 
 

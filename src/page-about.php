@@ -70,7 +70,7 @@
 		<article>
 			<h2>Contact Us</h2>
 				
-				<?php echo do_shortcode('[gravityform id="1" title="false" description="true"]'); ?>
+				<?php echo do_shortcode('[gravityform id="1" title="false" description="true" ajax="true"]'); ?>
 
 			</form>
 		</article>

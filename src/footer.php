@@ -8,7 +8,23 @@
 					Richmond, VA 23221</p>
 					<p>Info@QuillTheatre.org<br>
 					804.340.0115</p>
-					<span>Social goes here</span>
+					<ul class="social">
+						<li>
+							<a class="icon-fb" href="#"></a>
+						</li>
+						<li>
+							<a class="icon-twitter" href="#"></a>
+						</li>
+						<li>
+							<a class="icon-ig" href="#"></a>
+						</li>
+						<li>
+							<a class="icon-flickr" href="#"></a>
+						</li>
+						<li>
+							<a class="icon-yt" href="#"></a>
+						</li>
+					</ul>
 
 				</div>
 				<div id="box1" class="box">

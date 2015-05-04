@@ -18,7 +18,8 @@
 
 			$args = array(
 
-				'post_type' => 'workshops'
+				'post_type' => 'workshops',
+				'posts_per_page' => 3
 
 				);
 
@@ -82,7 +83,8 @@
 			$args = array(
 
 
-				'post_type' => 'school_performances'
+				'post_type' => 'school_performances',
+				'posts_per_page' => 3
 
 
 				);
@@ -99,7 +101,7 @@
 					</a>
 						<div class="list-hover">
 							<h3><?php the_title(); ?></h3>
-							<a class="learn-more" href="#">Learn More ></a>
+							<a class="learn-more" href="<?php the_permalink(); ?>">Learn More ></a>
 						</div>
 					</li>
 					

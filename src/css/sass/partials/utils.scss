@@ -24,8 +24,8 @@
 
 // For learn more links showing
 .show {
-	margin-top: -50px;
-	height: 110px !important;
+	margin-top: -90px;
+	height: 200px !important;
 }
 
 // For split articles
@@ -35,6 +35,10 @@
 	padding: 15px;
 	@media screen and (min-width: 480px){
 		width: 50%;
+	}
+	img {
+		max-width: 80%;
+		margin: 0 auto;
 	}
 }
 
@@ -73,6 +77,24 @@
 	@media screen and (min-width: 480px){
 		width: 66.666666%;
 		float: right;
+	}
+}
+
+//// float left on workshop page
+.single-workshops {
+	.split-twothirds {
+		@media screen and (min-width: 480px){
+			float: left;
+			border-right: 5px solid black;
+			margin: 2.5% 0;
+		}
+	}
+	.split-onethird {
+		text-align: right;
+		p {
+			color: $red;
+			font-weight: 800;
+		}
 	}
 }
 

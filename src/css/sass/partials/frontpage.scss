@@ -22,6 +22,10 @@
 .flex-control-thumbs li {
 	width: 46%;
 	margin: 2%;
+	border: 3px solid $almostblack;
+	@media screen and (min-width: 768px){
+		width: calc(80%/5);
+	}
 }
 
 .flex-control-nav {
