@@ -450,6 +450,8 @@ article {
   border-bottom: 3px solid black;
   clear: both;
   position: relative;
+  height: auto;
+  overflow: scroll;
 }
 article:last-child {
   border-bottom: 0px;
@@ -521,11 +523,6 @@ article.about {
   list-style-type: none;
   -webkit-padding-start: 0;
 }
-@media screen and (min-width: 768px) {
-  .listing {
-    margin-bottom: 100px;
-  }
-}
 .listing li {
   display: inline-block;
   width: 45%;
@@ -555,7 +552,7 @@ article.about {
   text-align: center;
   background-color: #a12c2e;
   display: block;
-  position: absolute;
+  position: relative;
   width: 100%;
   overflow: hidden;
   height: 110px;
@@ -567,6 +564,14 @@ article.about {
   text-transform: uppercase;
   padding: 5px;
   min-height: 100px;
+  font-size: 1em;
+  padding-top: 10%;
+}
+@media screen and (min-width: 1150px) {
+  .listing li .list-hover h3 {
+    padding-top: 0px;
+    font-size: 1.75em;
+  }
 }
 .listing li .list-hover a {
   border: 2px solid #efddc2;
@@ -632,7 +637,14 @@ article.about {
 @media screen and (min-width: 768px) {
   .gform_wrapper .gform_button {
     height: 50px;
+    font-size: 1.25em;
   }
+}
+
+.gform_confirmation_message {
+  text-align: center;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 1em;
 }
 
 .tabs {
@@ -786,6 +798,9 @@ article.about {
   max-width: 80%;
   margin: 0 auto;
 }
+.split-left ul {
+  -webkit-padding-start: 0;
+}
 
 .split-right {
   width: 100%;
@@ -861,12 +876,24 @@ article.about {
   color: white;
 }
 
+.title-left {
+  width: 70%;
+  display: inline-block;
+}
+
+.title-right {
+  display: inline-block;
+  text-align: right;
+  width: 29%;
+  text-transform: uppercase;
+}
+
 /**
  * partials/wrapper
  * ---
  */
 .wrapper {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -899,11 +926,11 @@ article.about {
   width: 60%;
   float: right;
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   right: 10px;
   max-width: 500px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .tagline {
     right: 30px;
     bottom: 30px;
@@ -1007,6 +1034,9 @@ article.about {
   color: white;
   font-size: 3em;
 }
+.nav.mobile span:hover {
+  cursor: pointer;
+}
 
 .nav.mobile ul {
   list-style-type: none;
@@ -1055,7 +1085,6 @@ article.about {
   width: 100%;
   border-bottom: 3px solid black;
   display: block;
-  max-width: 1300px;
   margin: 0 auto;
   clear: both;
 }
@@ -1063,6 +1092,7 @@ article.about {
   .footer {
     border-bottom: 5px solid black;
     border-top: 5px solid black;
+    width: 85%;
   }
 }
 .footer .box {
@@ -1089,7 +1119,7 @@ article.about {
   min-width: 100%;
   text-align: center;
   border-top: 3px solid black;
-  padding-bottom: 2em;
+  padding: 2em 0 1em;
 }
 .footer #box2 h2 {
   text-transform: uppercase;

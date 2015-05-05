@@ -8,12 +8,12 @@
    	width: 100%;
    	border-bottom: 3px solid black;
   	   display: block;
-      max-width: ($wrapper-width - 100px);
       margin: 0 auto;
       clear: both;
       @media screen and (min-width: 768px){
          border-bottom: 5px solid black;
          border-top: 5px solid black;
+         width: 85%;
       }
    	.box {
    		min-width: 50%;
@@ -35,7 +35,7 @@
    		min-width: 100%;
    		text-align: center;
    		border-top: 3px solid black;
-   		padding-bottom: 2em;
+   		padding: 2em 0 1em;
    		h2 {
    			text-transform: uppercase;
             -webkit-margin-before: 0;
