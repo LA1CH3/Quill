@@ -25,7 +25,7 @@
 					<?php the_content(); ?>
 				</div>
 				<div class="split-onethird">
-					<p><?php echo $info; ?></p>
+					<?php echo $info; ?>
 				</div>
 
 

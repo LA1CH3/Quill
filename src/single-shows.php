@@ -5,6 +5,7 @@
 		<section>
 
 			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/about-main.png'; ?>);">
+				<h2><?php the_title(); ?></h2>
 				
 				
 			</div>
@@ -53,9 +54,8 @@
 			</article>
 
 			<article class="ajax-show">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta nisi metus, vel faucibus libero bibendum egestas. In commodo tristique elementum. Vivamus turpis libero, aliquam pellentesque fringilla nec, finibus id urna. Phasellus nisl lorem, sagittis quis arcu quis, venenatis lacinia tellus. Nam consequat eleifend eros et viverra. Duis nec maximus erat, ut hendrerit ex. Nunc tempus malesuada lorem, eget porttitor ex suscipit commodo. Duis ut scelerisque augue. Ut ac velit velit. Aenean sapien ligula, iaculis vitae placerat ac, gravida et ex.</p>
+				<p>Click one of the tabs above to get more information about the play.</p>
 
-			<p>Fusce a aliquam nisi. Aliquam erat volutpat. Integer rutrum mattis felis, eu vehicula libero congue vitae. Nullam egestas lectus at euismod bibendum. Vestibulum leo nunc, sollicitudin nec turpis et, rhoncus tempus leo. Sed eget neque at neque luctus facilisis quis eget tortor. Ut accumsan ex id ipsum varius, in convallis ligula eleifend. Sed semper risus eget enim bibendum mollis.</p>
 			</article>
 
 			<!-- summer classes -->
@@ -143,7 +143,7 @@
 			<h3><?php echo $date; ?></h3>
 			<div id="map-canvas"></div>
 			<h2>Sponsors</h2>
-			<p><?php echo $sponsors; ?></p>
+			<?php echo $sponsors; ?>
 		</article>
 		<!-- /school performances -->
 

@@ -13,6 +13,25 @@
   box-sizing: border-box;
 }
 
+div p:last-child {
+  -webkit-margin-after: 0em;
+}
+
+h2 + p {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+h2 + h3 {
+  @media screen and (max-width: 480px){
+    -webkit-margin-before: 0em;
+  }
+}
+
+article > p {
+  -webkit-margin-after: 0em;
+}
+
 html {
   // `font-size` for REM use
   font-size: 62.5%;
@@ -26,6 +45,11 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
+}
+
+ul {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }
 
 img {
@@ -62,8 +86,11 @@ input[type="search"] {
 
 // Flexslider resets/overrides
 .flex-direction-nav a {
-  top: 25%;
+  top: 20%;
   height: 50px;
+  &:before {
+    font-size: 30px;
+  }
   @media screen and (min-width: 768px){
     top: 35%;
   }

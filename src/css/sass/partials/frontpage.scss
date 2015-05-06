@@ -17,6 +17,9 @@
 
 .flexslider {
 	background: none;
+	@media screen and (max-width: 480px){
+		margin-bottom: 0px;
+	}
 }
 
 .flex-control-thumbs li {

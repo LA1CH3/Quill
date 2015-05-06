@@ -24,7 +24,7 @@
 
 // For learn more links showing
 .show {
-	margin-top: -90px;
+	margin-top: -100px;
 	height: 200px !important;
 }
 
@@ -32,7 +32,6 @@
 .split-left {
 	width: 100%;
 	display: inline-block;
-	padding: 15px;
 	@media screen and (min-width: 480px){
 		width: 50%;
 	}
@@ -48,13 +47,16 @@
 .split-right {
 	width: 100%;
 	display: inline-block;
-	padding: 15px;
 	img {
 		width: 70%;
 		margin: 0 auto;
 		max-width: 200px;
+		@media screen and (min-width: 480px){
+			padding-top: 5%;
+		}
 	}
 	@media screen and (min-width: 480px){
+		padding: 15px 15px 0 15px;
 		width: 50%;
 		float: right;
 	}
@@ -63,23 +65,25 @@
 .split-onethird {
 	width: 100%;
 	display: inline-block;
-	padding: 15px;
+	padding: 0 15px;
 	img {
 		display: block;
 		margin: 0 auto;
 	}
 	@media screen and (min-width: 480px){
 		width: calc(100%/3);
+		padding: 15px;
 	}
 }
 
 .split-twothirds {
 	width: 100%;
 	display: inline-block;
-	padding: 15px;
+	padding: 0 15px;
 	@media screen and (min-width: 480px){
 		width: 66.666666%;
 		float: right;
+		padding: 15px;
 	}
 }
 
@@ -93,7 +97,11 @@
 		}
 	}
 	.split-onethird {
-		text-align: right;
+		text-align: left;
+		@media screen and (min-width: 480px){
+			text-align: right;
+			margin: 2.5% 0;
+		}
 		p {
 			color: $red;
 			font-weight: 800;
@@ -119,6 +127,11 @@
 	}
 }
 
+// no heading articles
+.nohead {
+	padding-top: 2em;
+}
+
 // float utils
 .title-left {
 	width: 70%;
@@ -126,7 +139,9 @@
 }
 .title-right {
 	display: inline-block;
-	text-align: right;
-	width: 29%;
 	text-transform: uppercase;
+	@media screen and (min-width: 480px){
+		text-align: right;
+		width: 29%;
+	}
 }
