@@ -4,14 +4,13 @@
 		<!-- section -->
 		<section>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/about-main.png'; ?>);">
-				<h2><?php the_title(); ?></h2>
+			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/education_jumbo.png'; ?>);">
 				
 			</div>
 
 			<!-- summer classes -->
 			<article>
-			<h2>Workshops & Summer Classes</h2>
+			<h2>Summer Classes</h2>
 			<ul class="listing">
 
 			<?php
@@ -19,7 +18,7 @@
 			$args = array(
 
 				'post_type' => 'workshops',
-				'posts_per_page' => 3
+				'posts_per_page' => 4
 
 				);
 
@@ -48,30 +47,6 @@
 		</article>
 		<!-- /summer classes -->
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
-			<!-- article -->
-			<article class="nohead                                             " id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-				<?php the_content(); ?>
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
-
 		<!-- school performances -->
 		<article>
 			<h2>School Performances</h2>
@@ -84,7 +59,8 @@
 
 
 				'post_type' => 'school_performances',
-				'posts_per_page' => 3
+				'posts_per_page' => 4,
+				'orderby' => 'menu_order'
 
 
 				);
@@ -110,6 +86,24 @@
 			</ul>
 		</article>
 		<!-- /school performances -->
+
+		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+			<!-- /article -->
+
+		<?php endwhile; ?>
+
+		<?php else: ?>
+
+			<!-- article -->
+			<article>
+
+				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+
+			</article>
+			<!-- /article -->
+
+		<?php endif; ?>
 
 		</section>
 		<!-- /section -->

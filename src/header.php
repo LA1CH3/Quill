@@ -21,6 +21,9 @@
             tests: {}
         });
         </script>
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/bower_components/fullcalendar/dist/fullcalendar.css'; ?>">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.5/slick-theme.css"/>
 
 	</head>
 	<body <?php body_class(); ?>>
@@ -46,7 +49,7 @@
 					<!-- mobile nav -->
 					<div class="mobile nav-toggle">
 						<span>
-							<img src="<?php echo get_template_directory_uri() . '/img/hamburger.svg'; ?>" alt="hamburger" />
+							<img src="<?php echo get_template_directory_uri() . '/img/hamburger.svg'; ?>" alt="menu" />
 						</span><span>menu</span>
 					</div>
 

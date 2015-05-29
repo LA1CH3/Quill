@@ -102,8 +102,12 @@ function html5blank_header_scripts()
             // Modernizr
             wp_register_script('modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '2.8.3');
 
-            // Flexslider
-            wp_register_script('flexslider', get_template_directory_uri() . '/bower_components/flexslider/jquery.flexslider-min.js', array(), '2.8.3');
+            // Moment.js
+            wp_register_script('moment', get_template_directory_uri() . '/bower_components/moment/moment.js', array(), '2.8.3');
+
+            // Full calendar
+            wp_register_script('fullcal',
+                get_template_directory_uri() . '/bower_components/fullcalendar/dist/fullcalendar.min.js', array(), '2.8.3');
 
             // Custom scripts
             wp_register_script(
@@ -113,7 +117,8 @@ function html5blank_header_scripts()
                     'conditionizr',
                     'modernizr',
                     'jquery',
-                    'flexslider'),
+                    'moment',
+                    'fullcal'),
                 '1.0.0');
 
             // Enqueue Scripts
@@ -145,9 +150,9 @@ function html5blank_styles()
     if (HTML5_DEBUG) {
         // normalize-css
         wp_register_style('normalize', get_template_directory_uri() . '/bower_components/normalize.css/normalize.css', array(), '3.0.1');
-        
-        // flexslider-css
-        wp_register_style('flexslider', get_template_directory_uri() . '/bower_components/flexslider/flexslider.css', array(), '3.0.1');
+
+        // fullcal-css
+        wp_register_style('fullcal', get_template_directory_uri() . '/bower_components/fullcalendar/dist/fullcalendar.css', array(), '3.0.1');
 
         // Custom CSS
         wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array('normalize'), '1.0');
@@ -488,3 +493,17 @@ function shows_callback() {
     die(1);
 }
 
+// Custom/Additional functions here
+add_action( 'after_setup_theme', 'quill_theme_setup' );
+function quill_theme_setup(){
+    add_image_size("TabPhoto", 480);
+}
+
+
+function archive_pre($query){
+    if( is_post_type_archive('shows') || is_home() ) {
+        $query->set('orderby', 'menu_order');
+        return;
+    }
+}
+add_action('pre_get_posts', 'archive_pre', 1);

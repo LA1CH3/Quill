@@ -4,10 +4,6 @@
 		<!-- section -->
 		<section>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/about-main.png'; ?>);">
-				<h2>Staff</h2>
-			</div>
-
 			<article class="staff">
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>

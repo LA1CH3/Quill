@@ -4,8 +4,15 @@
 		<!-- section -->
 		<section>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/workshop-single.png'; ?>);">
-				<h2>Workshops & Summer Classes</h2>
+		<?php if( have_posts() ) : while( have_posts() ) : the_post(); 
+
+				$thumb_id = get_post_thumbnail_id();
+				$thumb_url_array = wp_get_attachment_image_src($thumb_id, "full");
+  				$thumb_url = $thumb_url_array[0];
+
+				?>
+
+			<div class="page-jumbo" style="background-image: url(<?php echo $thumb_url; ?>);">
 				
 			</div>
 
@@ -14,11 +21,9 @@
 			<!-- article -->
 			<article id="article-workshop">
 
-			<?php if( have_posts() ) : while( have_posts() ) : the_post(); 
+				<?php $info = get_field("workshop_info", false, true); ?>
 
-				$info = get_field("workshop_info", false, true);
-
-				?>
+				
 
 				<div class="split-twothirds">
 					<h2><?php the_title(); ?></h2>

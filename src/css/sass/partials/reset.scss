@@ -22,6 +22,18 @@ h2 + p {
   -webkit-margin-after: 0em;
 }
 
+ul {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+section > article:first-child {
+  padding-top: 30px;
+}
+
 h2 + h3 {
   @media screen and (max-width: 480px){
     -webkit-margin-before: 0em;
@@ -30,6 +42,10 @@ h2 + h3 {
 
 article > p {
   -webkit-margin-after: 0em;
+}
+
+article > h2, div > h2, article > ul {
+  padding-top: 15px;
 }
 
 html {
@@ -86,25 +102,50 @@ input[type="search"] {
 
 // Flexslider resets/overrides
 .flex-direction-nav a {
-  top: 20%;
+  top: 30%;
   height: 50px;
   &:before {
     font-size: 30px;
   }
   @media screen and (min-width: 768px){
-    top: 35%;
+    top: 45%;
   }
 }
 
 .flex-viewport {
-  max-height: 900px;
+  max-height: 100%;
   border: 3px solid $almostblack;
   img {
     max-height: auto;
     @media screen and (min-width: 768px){
       position: relative;
-      top: -120px;
     }
+  }
+}
+
+.single-shows, .archive {
+  .flexslider {
+    border: 0px;
+    top: 20px;
+  }
+  .flex-viewport {
+    display: inline-block;
+    max-height: 600px;
+    li {
+      width: 100vw !important;
+      max-width: 1400px;
+      display: inline-block !important;
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .flex-control-nav {
+    display: none;
+  }
+  .flex-direction-nav a {
+    top: 50%;
   }
 }
 
@@ -118,3 +159,58 @@ input[type="search"] {
     }
   }
 }
+
+.fc-content span {
+  color: white;
+}
+
+.fc-left {
+  display: none;
+}
+
+// calendar widget resets
+.tribe-mini-calendar-wrapper {
+  width: 75% !important;
+  margin: 0 auto;
+}
+
+.tribe-mini-calendar {
+  background-color: $red;
+  color: white !important;
+  border: 2px solid black;
+  thead {
+    background: $red !important;
+  }
+  .tribe-mini-calendar-dayofweek {
+    background-color: $red !important;
+    color: white !important;
+  }
+  .tribe-events-present {
+    background-color: white !important;
+    color: $red !important;
+  }
+}
+
+.tribe-events-has-events:hover {
+  background-color: white !important;
+}
+
+.tribe-mini-calendar-event .list-date {
+  background-color: $red !important;
+}
+
+#ajax-loading-mini {
+  display: none !important;
+}
+
+.archive .frontslide {
+  top: 25px;
+  @media screen and (min-width: 768px){
+    top: 20px;
+  }
+  @media screen and (min-width: 1024px){
+    top: 10px;
+  }
+}
+
+

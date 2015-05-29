@@ -10,29 +10,32 @@
 					804.340.0115</p>
 					<ul class="social">
 						<li>
-							<a class="icon-fb" href="#"></a>
+							<a target="_blank" class="icon-fb" href="https://www.facebook.com/henleystreettheatre?fref=ts"></a>
 						</li>
 						<li>
-							<a class="icon-twitter" href="#"></a>
+							<a target="_blank" class="icon-twitter" href="https://twitter.com/richmondshakes"></a>
 						</li>
 						<li>
-							<a class="icon-ig" href="#"></a>
+							<a target="_blank" class="icon-ig" href="https://instagram.com/henshakes/"></a>
 						</li>
 						<li>
-							<a class="icon-flickr" href="#"></a>
+							<a target="_blank" class="icon-flickr" href="https://www.flickr.com/photos/quilltheatre"></a>
 						</li>
 						<li>
-							<a class="icon-yt" href="#"></a>
+							<a target="_blank" class="icon-yt" href="https://plus.google.com/u/0/b/118010016293955882329/118010016293955882329/videos/p/pub"></a>
 						</li>
 					</ul>
 
 				</div>
 				<div id="box1" class="box">
-					<a class="btn" id="btn-donate" href="#">Donate</a>
-					<a class="btn" id="btn-news" href="#">Get News</a>
+					<a class="btn" target="_blank" id="btn-donate" href="https://henleystreet.showare.com/DonationAddToBasket.asp?camp=2">Donate</a>
+					<a class="btn" target="_blank" id="btn-news" href="http://visitor.constantcontact.com/manage/optin?v=001FFspMhSEL8t3nHTTEbgDii-a8sVdSuJz3fU3q2bcoLanbn1TmHaIdAUXwP1mj6Dx9IUqhGrzjTM1O3ZLuG5BqZITgEyfQUIy">Get News</a>
 				</div>
 				<div id="box3" class="box">
-					<img src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">
+					<!-- <img src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar"> -->
+					<h2>June:<br> Much Ado About Nothing</h2>
+					<div id="calendar"></div>
+
 				</div>
 				<!-- /copyright -->
 
@@ -44,6 +47,8 @@
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
+
+		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.min.js"></script>
 
 		<!-- analytics -->
 		<script>

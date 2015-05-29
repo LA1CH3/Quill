@@ -4,16 +4,6 @@
 	$(function () {
 		// DOM ready, take it away
 
-		///////////////////// JS Plugins
-		 
-		// Can also be used with $(document).ready()
-	  $(".flexslider").flexslider({
-	    animation: "slide",
-	    controlNav: "thumbnails"
-	  });
-
-	  // Begin custom scripts
-
 		var $cache = {};
 
 		$cache.menuToggle = $(".nav-toggle");
@@ -21,6 +11,26 @@
 		$cache.menuExit = $(".nav.mobile span");
 		$cache.listing = $(".listing li");
 		$cache.learnMore = $(".learn-more");
+		$cache.calendar = $("#calendar");
+		///////////////////// JS Plugins
+
+	  $('.frontslide').slick({
+	  	arrows: true,
+	  	autoplay: true
+	  });
+
+	  // fullcalendar
+	  $cache.calendar.fullCalendar({
+	  	height: 100,
+	  	contentHeight: 250,
+	  	defaultDate: "2015-06-04",
+	  	events: eventsArr,
+	  	eventColor: "#7c1416",
+	  	eventTextColor: "white",
+	  	fixedWeekCount: false
+	  });
+
+	  /////////////////// Begin custom scripts
 
 		// Click appear functions
 
@@ -45,14 +55,13 @@
 		hoverAppear($cache.listing, $cache.learnMore);
 
 
-
 		// Show page ajax
 		$(".tabs .btn").click(function(e) {
 			e.preventDefault();
 			$(".tabs .btn").removeClass("selected");
 			$(this).addClass("selected");
 		    $.ajax({
-		        url:"../../../quill/wp-admin/admin-ajax.php",
+		        url:"../../../wp-admin/admin-ajax.php",
 		        type: "GET",
 		        cache: false,
 		        dataType: "html",

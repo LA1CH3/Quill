@@ -4,15 +4,20 @@
 		<!-- section -->
 		<section>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/about-main.png'; ?>);">
-				<h2><?php the_title(); ?></h2>
+		<?php if (have_posts()): while (have_posts()) : the_post(); 
+
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url_array = wp_get_attachment_image_src($thumb_id, "full");
+  			$thumb_url = $thumb_url_array[0];
+
+			?>
+
+			<div class="page-jumbo" style="background-image: url(<?php echo $thumb_url; ?>);">
 				
 			</div>
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
 			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article class="about-article" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php the_content(); ?>
 
@@ -35,7 +40,7 @@
 
 		<!-- Our staff -->
 		<article>
-			<h2>Our Staff</h2>
+			<h2>Senior Staff</h2>
 			<ul class="listing">
 
 
@@ -43,13 +48,17 @@
 
 				$args = array(
 
-					'post_type' => 'staff'
+					'post_type' => 'staff',
+					'orderby' => 'menu_order',
+					'posts_per_page' => 4
 
 					);
 
 				$staffquery = new WP_Query($args);
 
 				if( $staffquery->have_posts() ) : while( $staffquery->have_posts() ) : $staffquery->the_post();
+
+				$title = get_field("title", false, true);
 
 			 ?>
 
@@ -59,11 +68,14 @@
 					</a>
 						<div class="list-hover">
 							<h3><?php the_title(); ?></h3>
+							<p><?php echo $title; ?></p>
 							<a class="learn-more" href="<?php the_permalink(); ?>">Learn More ></a>
 						</div>
 				</li>
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 			</ul>
+			<a href="http://quilltheatre.org/about/full-staff/" class="btn purple" target="_blank">Full Staff</a>
+			<a href="http://quilltheatre.org/about/board-of-trustees/" class="btn purple" target="_blank">Board</a>
 		</article>
 		<!-- /our staff -->
 

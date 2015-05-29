@@ -3,16 +3,28 @@
 	<main role="main">
 		<!-- section -->
 		<section>
+		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/about-main.png'; ?>);">
-				<h2><?php the_title(); ?></h2>
-				
-				
+			<div class="frontslide">
+
+			  <?php
+
+			  if( have_rows('slider_gallery') ):
+
+			  	while( have_rows('slider_gallery') ) : the_row();
+
+			  $image = get_sub_field('photo');
+
+			   ?>
+			    <div>
+			      		<img src="<?php echo $image; ?>" alt="#"/>
+			    </div>
+
+			   <?php endwhile; endif; ?>
 			</div>
 
 			<article class="about">
-				<h2>About the show</h2>
-				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+				<h2><?php the_title(); ?></h2>
 
 					<?php
 
@@ -20,7 +32,8 @@
 
 					 ?>
 
-				<a class="btn tix" href="<?php echo $tixlink; ?>">Buy Tickets</a>
+				<a class="btn tix" target="_blank" href="https://henleystreet.showare.com/orderticketsarea.asp?p=88&a=24&backurl=default.asp
+">Buy Tickets</a>
 
 					<?php the_content();
 
@@ -29,11 +42,16 @@
 					$date = get_field("date", false, true);
 					$tixdesc = get_field("ticketing_description", false, true);
 					$sponsors = get_field("sponsors", false, true);
+					$photos = get_field("photos", false, true);
+					$auditions = get_field("auditions", false, true);
+
+					$calstart = get_field("calendar_start", false, true);
+					$calend = get_field("calendar_end", false, true);
 
 				endwhile; endif; ?>
 
 				<ul class="tabs" data-content="<?php echo $post->ID; ?>">
-					<li data-content="photos" class="btn">
+					<li data-content="photos" class="btn selected">
 						<a href="<?php echo bloginfo('template_directory'); ?>/inc/showajax.php?id=<?php echo $post->ID; ?>">Photos</a>
 					</li>
 					<li data-content="talk-backs" class="btn">
@@ -54,7 +72,7 @@
 			</article>
 
 			<article class="ajax-show">
-				<p>Click one of the tabs above to get more information about the play.</p>
+				<?php echo $photos; ?>
 
 			</article>
 
@@ -71,7 +89,37 @@
 					<p><?php echo $tixdesc; ?></p>
 				</div>
 				<div class="split-right">
-					<img style="display: block;" src="<?php echo get_template_directory_uri() . '/img/Quill_calendar.png'; ?>" alt="Calendar">
+
+				<?php if( has_category("current") ){ ?>
+						
+				    <div  id="show-cal"></div>
+
+					<script>
+
+						jQuery(document).ready(function(){
+							jQuery("#show-cal").fullCalendar({
+							height: 200,
+							contentHeight: 200,
+							defaultDate: <?php echo json_encode($calstart); ?>,
+							events: [{
+								title: <?php echo json_encode(get_the_title()); ?>,
+								start: <?php echo json_encode($calstart); ?>,
+								end: <?php echo json_encode($calend); ?>,
+								now: <?php echo json_encode($calstart . 'T00:00:00'); ?>,
+								url: <?php echo json_encode($tixlink); ?>
+							}],
+							eventColor: "#7c1416",
+							eventTextColor: "white",
+							hiddenDays: [1,2,3]
+						});
+					});
+
+					</script>
+				<?php } else { ?>
+					<a class="btn red" target="_blank" href="<?php echo get_template_directory_uri() . '/inc/quill_1516season.pdf'; ?>">Subscribe by Mail</a>
+					<a class="btn purple" target="_blank" href="https://henleystreet.showare.com/orderticketsarea.asp?p=88&a=24&backurl=default.asp">Subscribe Online</a>
+				<?php } ?>
+					
 				</div>
 				
 
@@ -114,6 +162,8 @@
 
 				function initialize() {
 
+					var directionsService = new google.maps.DirectionsService();
+
 					var styles = [{
 						stylers: [
 						{ hue: "#7c1416" },
@@ -125,25 +175,49 @@
 
 					var mapOptions = {
 						center: myLatLng,
-						zoom: 13
+						zoom: 13,
 					};
 
 					var map = new google.maps.Map(document.getElementById('map-canvas'),
 						mapOptions);
 					map.setOptions({styles: styles});
 
+					// Create a renderer for directions and bind it to the map.
+					var rendererOptions = {
+					    map: map
+					}
+
+  					directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions)
+
+  					// Instantiate an info window to hold step text.
+                    var stepDisplay = new google.maps.InfoWindow();
+
+					var infoWindow = new google.maps.InfoWindow({
+						content: address
+					});
+
 					var marker = new google.maps.Marker({
 						position: myLatLng,
-						map: map 
+						map: map,
+						title: address
+					});
+
+					google.maps.event.addDomListener(marker, 'click', function(){
+						infoWindow.open(map, marker);
 					});
 				}
+
 				google.maps.event.addDomListener(window, 'load', initialize);
 			</script>
 			<h2 class="top">Location</h2>
-			<h3><?php echo $date; ?></h3>
+                        <h3><?php echo $address; ?></h3>
 			<div id="map-canvas"></div>
+			</article>
+
+			<article>
 			<h2>Sponsors</h2>
 			<?php echo $sponsors; ?>
+			</article>
 		</article>
 		<!-- /school performances -->
 

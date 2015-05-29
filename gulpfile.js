@@ -160,8 +160,6 @@ gulp.task( "watch", [ "template", "styles" ], function() {
 		"src/css/sass/**/*.scss"
 	], [ "styles" ] );
 
-	/** Watch for JSHint */
-	gulp.watch( "src/js/{!(lib)/*.js,*.js}", ["jshint"] );
 });
 
 /** Build */
@@ -170,7 +168,7 @@ gulp.task( "build", [
 	"clean",
 	"template",
 	"styles",
-	"jshint",
+	// "jshint",
 	"copy",
 	"uglify"
 ], function () {

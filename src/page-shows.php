@@ -11,7 +11,6 @@ Template Name: Shows
 		<section>
 
 			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/shows-main.png'; ?>);">
-				<h2><?php the_title(); ?></h2>
 				
 			</div>
 

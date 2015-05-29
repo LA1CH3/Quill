@@ -4,20 +4,27 @@
 		<!-- section -->
 		<section>
 
-			<div class="page-jumbo" style="background-image: url(<?php echo get_template_directory_uri() . '/img/volunteer-main.png'; ?>);">
-				<h2>School Performances</h2>
+		<?php if( have_posts() ) : while( have_posts() ) : the_post(); 
+
+		$thumb_id = get_post_thumbnail_id();
+				$thumb_url_array = wp_get_attachment_image_src($thumb_id, "full");
+  				$thumb_url = $thumb_url_array[0];
+
+				?>
+
+			<div class="page-jumbo" style="background-image: url(<?php echo $thumb_url; ?>);">
 				
 			</div>
 
 			<!-- article -->
 			<article id="post">
 
-			<?php if( have_posts() ) : while( have_posts() ) : the_post(); 
-
-				$author = get_field('author', false, true); ?>
+				<?php $author = get_field('author', false, true); ?>
 
 				<h2 class="title-left"><?php the_title(); ?></h2>
+				<?php if($author){ ?>
 				<h3 class="title-right">By: <?php echo $author; ?></h3>
+				<?php } ?>
 
 				<div class="split-onethird">
 					<?php the_post_thumbnail(); ?>

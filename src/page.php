@@ -4,42 +4,27 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php the_title(); ?></h1>
+			<?php if (have_posts()): while (have_posts()) : the_post(); 
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+			$thumb_id = get_post_thumbnail_id();
+				$thumb_url_array = wp_get_attachment_image_src($thumb_id, "full");
+  				$thumb_url = $thumb_url_array[0];
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				?>
+
+			<div class="page-jumbo" style="background-image: url(<?php echo $thumb_url; ?>);">
+			</div>
+
+			<article class="page">
 
 				<?php the_content(); ?>
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
+				<?php endwhile; endif; wp_reset_postdata(); ?>
 
 			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
 
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
